@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ── Custom Theme Tokens (Tailwind v4 via @theme) ────────────────────── */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Lora', ui-serif, Georgia, serif;
+
+  --color-brand-bg: #FDFBF7;
+  --color-brand-surface: #F6F4EB;
+  --color-brand-terra: #C84B31;
+  --color-brand-terra-dark: #A33B26;
+  --color-brand-verde: #2D6A4F;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #FDFBF7;
+  color: #1c1917;
+  /* stone-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar — sutil e alinhada ao tema */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F4EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6cfc0;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b9af9f;
+}
+
+/* Focus ring global */
+:focus-visible {
+  outline: 2px solid #2D6A4F;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Âncoras com offset para o header fixo */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Selection ───────────────────────────────────────────────────────── */
+::selection {
+  background: #e0e7ff;
+  color: #1e1b4b;
+}
+
+/* ── Anchor offset ───────────────────────────────────────────────────── */
+[id] {
+  scroll-margin-top: 72px;
+}
