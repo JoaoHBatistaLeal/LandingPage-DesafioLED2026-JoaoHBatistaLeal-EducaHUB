@@ -153,7 +153,7 @@ export default function Projeto() {
             />
             
             <p className="text-[14px] font-extrabold text-[#0A1128] tracking-widest uppercase mt-4">
-              Evidências Visuais da Aplicação
+              Evidências Visuais de como foi validado
             </p>
 
             <div className="flex flex-col gap-5 overflow-hidden py-4 border-l border-transparent">
