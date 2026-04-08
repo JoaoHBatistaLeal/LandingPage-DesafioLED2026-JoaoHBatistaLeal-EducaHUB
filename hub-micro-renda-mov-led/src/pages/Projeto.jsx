@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ExternalLink, ArrowRight, ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Importando o Link para navegação interna
 
 export default function Projeto() {
   // 1. Navegação e Orientação (Global)
@@ -63,7 +64,7 @@ export default function Projeto() {
         className="fixed top-0 left-0 h-1 bg-[#C6EDDF] w-full z-50 origin-left will-change-transform"
       />
 
-      {/* Scroll Prompt Flutuante (Some aos 90% do scroll global) */}
+      {/* Scroll Prompt Flutuante */}
       <motion.div 
         style={{ scale: scalePrompt }}
         className="fixed bottom-10 right-10 lg:right-16 z-40 flex flex-col items-center gap-2 will-change-transform origin-bottom"
@@ -92,31 +93,57 @@ export default function Projeto() {
             </motion.h1>
           </div>
           <div className="col-span-12 md:col-span-4 flex md:justify-end overflow-hidden py-4">
-            <motion.p 
-              style={{ y: yHeaderSub }}
-              className="text-[14px] font-extrabold text-[#0A1128]/50 uppercase tracking-widest text-left md:text-right will-change-transform"
-            >
-              Metodologia Validada
-            </motion.p>
           </div>
         </div>
       </section>
 
-      {/* --- Section 2: Validação (Structural Reveal sem fade) --- */}
+      {/* --- Section 2: Validação --- */}
       <section ref={refVal} className="w-full py-32 flex justify-center bg-[#FDFBF7] relative z-20 overflow-hidden">
         <div className="w-full max-w-7xl px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           
           <div className="col-span-1 md:col-span-7 flex flex-col justify-center">
              <h2 className="text-[13px] font-extrabold text-[#0A1128]/50 uppercase tracking-widest mb-6">
-              Validação Real
+              Inspiração
              </h2>
              <div className="overflow-hidden py-4">
                <motion.p 
-                 style={{ y: yValText }}
-                 className="text-[20px] lg:text-[28px] text-[#0A1128] font-extrabold leading-[1.5] w-full will-change-transform break-words"
-               >
-                 Essa ideia foi baseada em uma experiência passada no Ensino Médio do Colégio Educar Guarulhos, onde os alunos na matéria de empreendedorismo vendiam doces para arrecadar fundos nas campanhas solidárias de Páscoa e Dia das Crianças para o Instituto Batuíra. A ideia já é validada quando os alunos e a escola unem forças.
-               </motion.p>
+  style={{ y: yValText }}
+  className="text-[20px] lg:text-[28px] text-[#0A1128] font-extrabold leading-[1.5] w-full will-change-transform break-words"
+>
+  A inspiração para o LED surgiu da minha vivência como aluno no Ensino Médio do{' '}
+  <a 
+    href="https://www.colegioeducar.org/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
+  >
+    Colégio Educar
+  </a>
+  , em Guarulhos. Na época, utilizamos a eletiva de empreendedorismo para estruturar campanhas e vender doces em prol do{' '}
+  <a 
+    href="https://nucleobatuira.org.br/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
+  >
+    Núcleo Batuíra
+  </a>
+  . Ver o valor que nós mesmos arrecadamos se transformar em doações na Páscoa Solidária e no Dia das Crianças trouxe uma nova perspectiva sobre mobilização. Essa dinâmica evidenciou que a estrutura escolar, somada à dedicação dos alunos, gera resultados concretos. Como{' '}
+  <Link 
+    to="/idealizador" 
+    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
+  >
+    idealizador
+  </Link>
+  , essa experiência me impulsionou a desenhar um novo formato de apoio à comunidade: um ecossistema que movimenta toda a vizinhança, seja por meio da prestação de serviços ou pelo{' '}
+  <Link 
+    to="/voluntarios" 
+    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
+  >
+    voluntariado
+  </Link>
+  , mantendo sempre o empreendedorismo como pilar central.
+</motion.p>
              </div>
           </div>
           
@@ -127,7 +154,7 @@ export default function Projeto() {
             />
             
             <p className="text-[14px] font-extrabold text-[#0A1128] tracking-widest uppercase mt-4">
-              Evidências Visuais
+              Evidências Visuais da Aplicação
             </p>
 
             <div className="flex flex-col gap-5 overflow-hidden py-4 border-l border-transparent">
@@ -158,7 +185,6 @@ export default function Projeto() {
       </section>
 
       {/* --- Section 3: Core (Fluxo Normal & Viewport Highlighting) --- */}
-      {/* Container garantido para não exceder 100vw */}
       <section className="w-full max-w-full overflow-hidden py-32 bg-[#0A1128] relative">
         <div className="w-full pt-32">
           <div className="w-full max-w-7xl px-6 md:px-10 mx-auto flex flex-col lg:flex-row gap-10 md:gap-16 items-start">
@@ -170,52 +196,51 @@ export default function Projeto() {
                   Contexto e Dados
                 </h2>
                 <p className="text-[20px] text-[#FDFBF7] font-bold leading-[1.6] break-words">
-                  Entender os motivos da evasão é o primeiro passo para arquitetar uma solução eficaz. De acordo com o IBGE, a necessidade de trabalhar e o desinteresse são os principais fatores de abandono do ensino público.
+                  Segundo o IBGE, a necessidade de trabalhar e o desinteresse são os principais motivos para o abandono do ensino público. A solução precisa resolver o aspecto financeiro e dar sentido prático aos estudos simultaneamente.
                 </p>
                 <a 
                   href="https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/28286-necessidade-de-trabalhar-e-desinteresse-sao-principais-motivos-para-abandono-escolar" 
                   target="_blank" rel="noopener noreferrer" 
                   className="mt-4 inline-flex items-center gap-2 text-[15px] font-extrabold text-[#0A1128] bg-[#C6EDDF] hover:bg-[#FDFBF7] px-6 py-4 rounded-full transition-colors w-fit"
                 >
-                  Base do IBGE <ArrowRight size={16} strokeWidth={3} />
+                  Matéria do IBGE <ArrowRight size={16} strokeWidth={3} />
                 </a>
               </div>
             </div>
 
             {/* Direita: Text Opacity Reveal via Element In-View */}
-            {/* O flex-1 garante que isso preencha o espaço sem forçar o width pra fora da tela */}
             <div className="flex-1 w-full flex flex-col border-l-4 lg:border-l-8 border-[#1E293B] pl-6 lg:pl-10 pb-10 mt-10 lg:mt-0">
               <h2 className="text-[13px] font-extrabold text-[#C6EDDF]/50 uppercase tracking-widest mb-6">
-                A Solução (Ramo Contraturno)
+                O que projetamos?
               </h2>
               
               <p className="text-[20px] md:text-[28px] leading-[1.6] font-bold break-words">
                 <motion.span {...textViewportProps} className="text-[#FDFBF7] inline-block mb-2 will-change-transform">
-                  Como o jovem não tem idade para ingressar num curso técnico formal, proponho o Hub de Micro-Renda Escolar: 
+                  Como o jovem ainda não tem idade para o ensino técnico formal, o Hub de Micro-Renda Escolar utiliza o espaço da escola no contraturno como um polo de serviços.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#FDFBF7] inline-block mb-2 will-change-transform">
-                  usar a escola no contraturno como um polo de empreendedorismo, onde os alunos prestam serviços a preços populares para a própria vizinhança. 
+                  Profissionais da vizinhança ensinam ofícios rápidos aos alunos, como aplicação de película de celular ou design de sobrancelha.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#FDFBF7] inline-block mb-2 will-change-transform">
-                  A operação funciona na base da troca. Profissionais do bairro vão à escola ensinar ofícios rápidos, como aplicar película de celular ou design de sobrancelha. Em contrapartida, os alunos usam o que aprendem para ajudar o comércio desses voluntários. 
+                  Os estudantes aplicam esse aprendizado cobrando preços populares na própria comunidade, gerando renda lícita imediata.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#FDFBF7] inline-block mb-2 will-change-transform">
-                  A matemática vira ferramenta para montar planilhas de caixa, enquanto o português melhora o atendimento na internet. O jovem adquire renda lícita. 
+                  As matérias regulares ganham aplicação imediata. A matemática serve para estruturar o fluxo de caixa e precificar o trabalho, enquanto o português melhora o atendimento e a divulgação digital.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#C6EDDF] font-extrabold inline-block mb-2 will-change-transform">
-                  Para blindá-lo contra a evasão, a participação exige 85% de presença nas aulas. 
+                  Para blindar o jovem contra o aliciamento e a evasão, a participação no Hub exige 85% de presença nas aulas regulares.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#FDFBF7] inline-block mb-2 will-change-transform">
-                  Porém, a realidade da escola pública exige empatia: faltas por saúde ou imprevistos familiares graves são acolhidas. 
+                  A regra de retenção prevê flexibilidade. Faltas justificadas por saúde ou urgências familiares graves são acolhidas para garantir que o aluno não perca sua fonte de renda lícita quando mais precisa.
                 </motion.span>
                 <br/>
                 <motion.span {...textViewportProps} className="text-[#C6EDDF] font-extrabold inline-block will-change-transform">
-                  O objetivo é reter, não punir.
+                  O foco central é manter o aluno estudando, sem excluí-lo.
                 </motion.span>
               </p>
             </div>
@@ -240,22 +265,36 @@ export default function Projeto() {
                 Top 40<br/>GLOBO
               </p>
             </motion.div>
-            <p className="text-[20px] md:text-[24px] text-[#0A1128] mt-8 font-bold text-center md:text-left">
-              Projetos selecionados no Desafio LED 2026 promovido pela Rede Globo.
+            <p className="text-[20px] md:text-[24px] text-[#0A1128] mt-8 font-bold text-center md:text-left max-w-lg mx-auto md:mx-0">
+              De mais de 3.820 inscrições a um dos 40 projetos selecionados no Desafio LED 2026 promovido pela Rede Globo.
             </p>
           </div>
           
-          <div className="w-full md:w-2/5 flex justify-center md:justify-end mt-10 md:mt-0">
+          {/* Timeline de aprovação (Dois botões) */}
+          <div className="w-full md:w-2/5 flex flex-col gap-4 justify-center items-center md:items-end mt-10 md:mt-0">
             <motion.div 
               style={{ y: yLedBtn }} 
-              className="will-change-transform"
+              className="will-change-transform w-full sm:w-auto"
             >
               <a 
                 href="https://somos.globo.com/movimento-led/desafio-led/noticia/desafio-led-globo-2026-divulga-os-40-projetos-selecionados-para-a-proxima-etapa.ghtml" 
                 target="_blank" rel="noopener noreferrer" 
-                className="inline-flex items-center gap-3 text-[18px] font-extrabold text-[#FDFBF7] bg-[#0A1128] hover:bg-black px-10 py-6 rounded-full transition-colors shrink-0 whitespace-nowrap shadow-2xl"
+                className="flex items-center justify-center gap-3 text-[18px] font-extrabold text-[#FDFBF7] bg-[#0A1128] hover:bg-black px-10 py-6 rounded-full transition-colors whitespace-nowrap shadow-2xl w-full"
               >
-                Link da Matéria <ExternalLink size={24} strokeWidth={3} />
+                Ver Top 40 <ExternalLink size={22} strokeWidth={3} />
+              </a>
+            </motion.div>
+
+            <motion.div 
+              style={{ y: yLedBtn }} 
+              className="will-change-transform w-full sm:w-auto"
+            >
+              <a 
+                href="https://somos.globo.com/movimento-led-luz-na-educacao/desafio-led/noticia/desafio-led-globo-2026-recebe-mais-de-3820-inscricoes-e-avanca-para-a-proxima-fase.ghtml" 
+                target="_blank" rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-3 text-[16px] font-extrabold text-[#0A1128] border-2 border-[#0A1128] hover:bg-[#0A1128] hover:text-[#FDFBF7] px-8 py-4 rounded-full transition-colors whitespace-nowrap w-full"
+              >
+                Fase Anterior (Top 80) <ExternalLink size={18} strokeWidth={3} />
               </a>
             </motion.div>
           </div>
