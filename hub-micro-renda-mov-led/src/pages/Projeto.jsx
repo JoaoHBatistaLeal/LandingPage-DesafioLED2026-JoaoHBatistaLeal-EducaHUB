@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ExternalLink, ArrowRight, ArrowDown } from 'lucide-react';
-import { Link } from 'react-router-dom'; // Importando o Link para navegação interna
+import { Link } from 'react-router-dom';
 
 export default function Projeto() {
   // 1. Navegação e Orientação (Global)
@@ -18,7 +18,6 @@ export default function Projeto() {
   });
   // Título sobe e escapa da máscara enquanto a página rola
   const yHeaderTitle = useTransform(scrollProgHeader, [0, 1], [0, -200]);
-  const yHeaderSub = useTransform(scrollProgHeader, [0, 1], [0, -100]);
 
   // 3. Bloco 1 - Validação Real (Scaled Structural Reveal)
   const refVal = useRef(null);
@@ -44,7 +43,7 @@ export default function Projeto() {
     viewport: { once: false, margin: "-20% 0px -20% 0px" }
   };
 
-  // 5. Bloco 4 - Desafio LED (Velocidade e Expansão)
+  // 4. Bloco 4 - Desafio LED (Velocidade e Expansão)
   const refLed = useRef(null);
   const { scrollYProgress: scrollProgLed } = useScroll({
     target: refLed,
@@ -107,43 +106,43 @@ export default function Projeto() {
              </h2>
              <div className="overflow-hidden py-4">
                <motion.p 
-  style={{ y: yValText }}
-  className="text-[20px] lg:text-[28px] text-[#0A1128] font-extrabold leading-[1.5] w-full will-change-transform break-words"
->
-  A inspiração para o LED surgiu da minha vivência como aluno no Ensino Médio do{' '}
-  <a 
-    href="https://www.colegioeducar.org/" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
-  >
-    Colégio Educar
-  </a>
-  , em Guarulhos. Na época, utilizamos a eletiva de empreendedorismo para estruturar campanhas e vender doces em prol do{' '}
-  <a 
-    href="https://nucleobatuira.org.br/" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
-  >
-    Núcleo Batuíra
-  </a>
-  . Ver o valor que nós mesmos arrecadamos se transformar em doações na Páscoa Solidária e no Dia das Crianças trouxe uma nova perspectiva sobre mobilização. Essa dinâmica evidenciou que a estrutura escolar, somada à dedicação dos alunos, gera resultados concretos. Como{' '}
-  <Link 
-    to="/idealizador" 
-    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
-  >
-    idealizador
-  </Link>
-  , essa experiência me impulsionou a desenhar um novo formato de apoio à comunidade: um ecossistema que movimenta toda a vizinhança, seja por meio da prestação de serviços ou pelo{' '}
-  <Link 
-    to="/voluntarios" 
-    className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-block"
-  >
-    voluntariado
-  </Link>
-  , mantendo sempre o empreendedorismo como pilar central.
-</motion.p>
+                style={{ y: yValText }}
+                className="text-[20px] lg:text-[28px] text-[#0A1128] font-extrabold leading-[1.5] w-full will-change-transform break-words"
+              >
+                A inspiração para o LED surgiu da minha vivência como aluno no Ensino Médio do{' '}
+                <a 
+                  href="https://www.colegioeducar.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-flex items-center gap-1.5 underline decoration-2 underline-offset-4"
+                >
+                  Colégio Educar <ExternalLink size={20} strokeWidth={2.5} />
+                </a>
+                , em Guarulhos. Na época, utilizamos a eletiva de empreendedorismo para estruturar campanhas e vender doces em prol do{' '}
+                <a 
+                  href="https://nucleobatuira.org.br/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-flex items-center gap-1.5 underline decoration-2 underline-offset-4"
+                >
+                  Núcleo Batuíra <ExternalLink size={20} strokeWidth={2.5} />
+                </a>
+                . Ver o valor que nós mesmos arrecadamos se transformar em doações na Páscoa Solidária e no Dia das Crianças trouxe uma nova perspectiva sobre mobilização. Essa dinâmica evidenciou que a estrutura escolar, somada à dedicação dos alunos, gera resultados concretos. Como{' '}
+                <Link 
+                  to="/idealizador" 
+                  className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-flex items-center underline decoration-2 underline-offset-4"
+                >
+                  idealizador
+                </Link>
+                , essa experiência me impulsionou a desenhar um novo formato de apoio à comunidade, estruturando um ecossistema que movimenta toda a vizinhança, seja por meio da prestação de serviços ou pelo{' '}
+                <Link 
+                  to="/voluntarios" 
+                  className="bg-[#C6EDDF] text-[#0A1128] hover:bg-[#0A1128] hover:text-[#C6EDDF] transition-colors px-2 py-0.5 rounded-sm whitespace-nowrap inline-flex items-center underline decoration-2 underline-offset-4"
+                >
+                  voluntariado
+                </Link>
+                , mantendo sempre o empreendedorismo como pilar central.
+              </motion.p>
              </div>
           </div>
           
