@@ -26,12 +26,12 @@ export default function Gestores() {
           
           <div className="flex flex-col gap-8">
             <h2 className="text-[13px] font-extrabold text-[#0A1128]/50 uppercase tracking-widest pb-4">
-              Impacto e Custo
+              Viabilidade e Execução
             </h2>
             <div className="text-[20px] md:text-[24px] text-[#0A1128] font-extrabold leading-[1.6] space-y-6">
-              <p>Custo inicial quase zero.</p>
-              <p>Aproveitamento da infraestrutura ociosa da escola no contraturno.</p>
-              <p>Manual prático desenvolvido e empacotado para a replicação direta de qualquer gestão escolar independente da região.</p>
+              <p>Custo de implantação quase zero.</p>
+              <p>Uso inteligente do espaço que a escola já tem ocioso no contraturno.</p>
+              <p>Metodologia 100% documentada para qualquer gestor conseguir rodar o projeto do zero, independente da região.</p>
             </div>
           </div>
 
