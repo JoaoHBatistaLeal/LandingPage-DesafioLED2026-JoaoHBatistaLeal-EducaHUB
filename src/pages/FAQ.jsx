@@ -14,16 +14,16 @@ const faqs = [
 
 function AccordionItem({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="pb-4 mb-4">
+    <div className="pb-2 md:pb-4 mb-2 md:mb-4">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between text-left py-8 focus:outline-none"
+        className="w-full flex items-center justify-between text-left py-5 md:py-8 focus:outline-none"
         aria-expanded={isOpen}
       >
-        <span className="text-[20px] md:text-[24px] font-extrabold text-[#0A1128] pr-8 tracking-tight">
+        <span className="text-[18px] md:text-[24px] font-extrabold text-[#0A1128] pr-6 md:pr-8 tracking-tight">
           {question}
         </span>
-        <span className={`text-[#0A1128] font-bold text-[32px] leading-none shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true">
+        <span className={`text-[#0A1128] font-bold text-[28px] md:text-[32px] leading-none shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true">
           {isOpen ? '−' : '+'}
         </span>
       </button>
@@ -38,8 +38,8 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
             transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="overflow-hidden"
           >
-            <div className="pb-8">
-              <p className="text-[18px] md:text-[20px] text-[#0A1128]/80 leading-[1.6] font-bold max-w-2xl">
+            <div className="pb-6 md:pb-8">
+              <p className="text-[16px] md:text-[20px] text-[#0A1128]/80 leading-[1.6] font-bold max-w-2xl">
                 {answer}
               </p>
             </div>
@@ -54,18 +54,18 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <div className="flex justify-center w-full pb-32 pt-20 bg-[#FDFBF7] min-h-[calc(100vh-80px)]">
-      <div className="w-full max-w-7xl px-6 md:px-10 grid grid-cols-12 gap-10 md:gap-16 items-start">
+    <div className="flex justify-center w-full pb-20 md:pb-32 pt-16 md:pt-20 bg-[#FDFBF7] min-h-[calc(100vh-80px)]">
+      <div className="w-full max-w-7xl px-6 md:px-10 grid grid-cols-12 gap-8 md:gap-16 items-start">
         
-        {/* Left Side: Title anchored */}
-        <div className="col-span-12 lg:col-span-4 sticky top-32">
-          <h1 className="text-[40px] md:text-[72px] font-extrabold text-[#0A1128] leading-[1] tracking-tight">
-            Perguntas<br /> <span className="text-[#0A1128]/30">Frequentes</span>
+        {/* Left Side: Title anchored (Corrigido para mobile) */}
+        <div className="col-span-12 lg:col-span-4 relative lg:sticky lg:top-32 z-10">
+          <h1 className="text-[36px] md:text-[72px] font-extrabold text-[#0A1128] leading-[1.1] md:leading-[1] tracking-tight">
+            Perguntas<br className="hidden md:block" /> <span className="text-[#0A1128]/30">Frequentes</span>
           </h1>
         </div>
 
         {/* Right Side: FAQ list occupying wider space */}
-        <div className="col-span-12 lg:col-span-8 mt-4 lg:mt-0 flex flex-col gap-4">
+        <div className="col-span-12 lg:col-span-8 mt-2 lg:mt-0 flex flex-col gap-2 md:gap-4">
           {faqs.map((faq, i) => (
             <AccordionItem
               key={i}
