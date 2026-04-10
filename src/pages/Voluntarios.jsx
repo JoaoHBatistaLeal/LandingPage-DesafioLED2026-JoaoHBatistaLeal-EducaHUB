@@ -32,13 +32,15 @@ export default function Voluntarios() {
             O resultado prático vem na hora. O jovem continua estudando, passa a gerar renda lícita e fica blindado contra o aliciamento das ruas. De quebra, o comerciante capacita alguém que amanhã pode virar seu próprio Jovem Aprendiz.
           </p>
 
-          <motion.button
+          <motion.a
+            href="/guia-voluntario.pdf"
+            download="EducaHUB_Guia_Voluntario.pdf"
             whileHover={{ scale: 0.98 }}
             whileTap={{ scale: 0.95 }}
             className="w-full sm:w-fit bg-[#C6EDDF] text-[#0A1128] font-extrabold px-8 py-5 rounded-full text-[15px] flex items-center justify-center gap-3 transition-colors mt-6 md:mt-10 shadow-lg hover:shadow-xl hover:bg-[#A8DFCC]"
           >
             <span className="text-center">Baixe o Guia do Voluntário</span> <Download size={20} strokeWidth={2.5} className="shrink-0" />
-          </motion.button>
+          </motion.a>
         </div>
         
       </div>
