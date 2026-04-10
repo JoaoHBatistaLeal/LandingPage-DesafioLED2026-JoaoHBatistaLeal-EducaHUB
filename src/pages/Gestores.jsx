@@ -12,13 +12,15 @@ export default function Gestores() {
             Adote o EducaHUB na sua rede <span className="text-[#C6EDDF] bg-[#0A1128] px-2 rounded-sm whitespace-nowrap">pública</span> ou privada.
           </h1>
 
-          <motion.button
+          <motion.a
+            href="/manual-gestores.pdf"
+            download="EducaHUB_Manual_Gestores.pdf"
             whileHover={{ scale: 0.98 }}
             whileTap={{ scale: 0.95 }}
             className="w-fit bg-[#C6EDDF] text-[#0A1128] font-extrabold px-8 py-5 rounded-full text-[15px] flex items-center justify-center gap-3 transition-colors mt-4 shadow-none"
           >
             Download da Cartilha PDF <Download size={20} strokeWidth={2.5} />
-          </motion.button>
+          </motion.a>
         </div>
 
         {/* Right Side: Copy and Licensing without cards */}
