@@ -4,38 +4,30 @@ import { ExternalLink, ArrowRight, ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Projeto() {
-  // 1. Navegação e Orientação (Global)
   const { scrollYProgress } = useScroll();
   
-  // O prompt agora desaparece apenas no pé da página
   const scalePrompt = useTransform(scrollYProgress, [0.9, 0.99], [1, 0]);
 
-  // 2. Header Section (Parallax Inverso e Masking)
   const refHeader = useRef(null);
   const { scrollYProgress: scrollProgHeader } = useScroll({
     target: refHeader,
     offset: ["start start", "end start"]
   });
-  // Título sobe e escapa da máscara enquanto a página rola
   const yHeaderTitle = useTransform(scrollProgHeader, [0, 1], [0, -200]);
 
-  // 3. Bloco 1 - Validação Real (Scaled Structural Reveal)
   const refVal = useRef(null);
   const { scrollYProgress: scrollProgVal } = useScroll({
     target: refVal,
     offset: ["start end", "center center"]
   });
   
-  // Esquerda: Texto desliza verticalmente sem fade genérico
   const yValText = useTransform(scrollProgVal, [0, 0.6], [100, 0]);
   
-  // Direita: Borda desenhando e Links Staggered (x offset restrito)
   const scaleYBorder = useTransform(scrollProgVal, [0.2, 0.7], [0, 1]);
   const xLink1 = useTransform(scrollProgVal, [0.4, 0.7], [50, 0]);
   const xLink2 = useTransform(scrollProgVal, [0.5, 0.8], [50, 0]);
   const xLink3 = useTransform(scrollProgVal, [0.6, 0.9], [50, 0]);
 
-  // Viewport Props para Animação Flutuante/Opacidade dos textos 
   const textViewportProps = {
     initial: { opacity: 0.1, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -43,7 +35,6 @@ export default function Projeto() {
     viewport: { once: false, margin: "-20% 0px -20% 0px" }
   };
 
-  // 4. Bloco 4 - Desafio LED (Velocidade e Expansão)
   const refLed = useRef(null);
   const { scrollYProgress: scrollProgLed } = useScroll({
     target: refLed,
@@ -53,17 +44,14 @@ export default function Projeto() {
   const scaleLedBlock = useTransform(scrollProgLed, [0, 1], [0.8, 1.1]);
   const yLedBtn = useTransform(scrollProgLed, [0, 1], [40, 0]);
 
-
   return (
     <div className="w-full relative bg-[#FDFBF7] overflow-x-hidden">
       
-      {/* ProgressBar Global */}
       <motion.div 
         style={{ scaleX: scrollYProgress }}
         className="fixed top-0 left-0 h-1 bg-[#C6EDDF] w-full z-50 origin-left will-change-transform"
       />
 
-      {/* Scroll Prompt Flutuante */}
       <motion.div 
         style={{ scale: scalePrompt }}
         className="fixed bottom-10 right-10 lg:right-16 z-40 flex flex-col items-center gap-2 will-change-transform origin-bottom"
@@ -80,7 +68,6 @@ export default function Projeto() {
         </motion.div>
       </motion.div>
 
-      {/* --- Section 1: Header (Parallax e Mask) --- */}
       <section ref={refHeader} className="w-full relative h-[60vh] flex items-center justify-center bg-[#FDFBF7] overflow-hidden">
         <div className="w-full max-w-7xl px-6 md:px-10 grid grid-cols-12 gap-8 items-end relative z-10">
           <div className="col-span-12 md:col-span-8 overflow-hidden py-4">
@@ -96,7 +83,6 @@ export default function Projeto() {
         </div>
       </section>
 
-      {/* --- Section 2: Validação --- */}
       <section ref={refVal} className="w-full py-32 flex justify-center bg-[#FDFBF7] relative z-20 overflow-hidden">
         <div className="w-full max-w-7xl px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
           
@@ -183,12 +169,10 @@ export default function Projeto() {
         </div>
       </section>
 
-      {/* --- Section 3: Core (Fluxo Normal & Viewport Highlighting) --- */}
       <section className="w-full max-w-full overflow-hidden py-32 bg-[#0A1128] relative">
         <div className="w-full pt-32">
           <div className="w-full max-w-7xl px-6 md:px-10 mx-auto flex flex-col lg:flex-row gap-10 md:gap-16 items-start">
             
-            {/* Esquerda: Contexto */}
             <div className="w-full lg:w-1/3 shrink-0 h-full">
               <div className="flex flex-col gap-8">
                 <h2 className="text-[13px] font-extrabold text-[#C6EDDF]/50 uppercase tracking-widest">
@@ -207,7 +191,6 @@ export default function Projeto() {
               </div>
             </div>
 
-            {/* Direita: Text Opacity Reveal via Element In-View */}
             <div className="flex-1 w-full flex flex-col border-l-4 lg:border-l-8 border-[#1E293B] pl-6 lg:pl-10 pb-10 mt-10 lg:mt-0">
               <h2 className="text-[13px] font-extrabold text-[#C6EDDF]/50 uppercase tracking-widest mb-6">
                 O que projetamos?
@@ -248,7 +231,6 @@ export default function Projeto() {
         </div>
       </section>
 
-      {/* --- Section 4: LED Pop Action --- */}
       <section ref={refLed} className="w-full max-w-[100vw] overflow-hidden bg-[#C6EDDF] py-40 flex justify-center">
         <div className="w-full max-w-7xl px-6 md:px-10 flex flex-col md:flex-row relative items-center justify-between gap-16">
           
@@ -261,40 +243,51 @@ export default function Projeto() {
               className="origin-center md:origin-left flex w-full justify-center md:justify-start will-change-transform"
             >
               <p className="text-[64px] md:text-[96px] lg:text-[120px] font-extrabold text-[#0A1128] tracking-tighter leading-[0.9] text-center md:text-left">
-                Top 40<br/>GLOBO
+                Top 20<br/>GLOBO
               </p>
             </motion.div>
             <p className="text-[20px] md:text-[24px] text-[#0A1128] mt-8 font-bold text-center md:text-left max-w-lg mx-auto md:mx-0">
-              De mais de 3.820 inscrições a um dos 40 projetos selecionados no Desafio LED 2026 promovido pela Rede Globo.
+              De mais de 3.820 inscrições a um dos 20 projetos selecionados no Desafio LED 2026 promovido pela Fundação Roberto Marinho e Grupo Globo.
             </p>
           </div>
           
-          {/* Timeline de aprovação (Dois botões) */}
-          <div className="w-full md:w-2/5 flex flex-col gap-4 justify-center items-center md:items-end mt-10 md:mt-0">
+          <div className="w-full md:w-2/5 flex flex-col gap-8 justify-center items-center md:items-end mt-10 md:mt-0">
             <motion.div 
               style={{ y: yLedBtn }} 
               className="will-change-transform w-full sm:w-auto"
             >
               <a 
-                href="https://somos.globo.com/movimento-led/desafio-led/noticia/desafio-led-globo-2026-divulga-os-40-projetos-selecionados-para-a-proxima-etapa.ghtml" 
+                href="https://somos.globo.com/movimento-led/desafio-led/noticia/desafio-led-globo-2026-divulga-os-20-projetos-selecionados-para-a-proxima-etapa.ghtml" 
                 target="_blank" rel="noopener noreferrer" 
                 className="flex items-center justify-center gap-3 text-[18px] font-extrabold text-[#FDFBF7] bg-[#0A1128] hover:bg-black px-10 py-6 rounded-full transition-colors whitespace-nowrap shadow-2xl w-full"
               >
-                Ver Top 40 <ExternalLink size={22} strokeWidth={3} />
+                Ver Top 20 <ExternalLink size={22} strokeWidth={3} />
               </a>
             </motion.div>
 
             <motion.div 
               style={{ y: yLedBtn }} 
-              className="will-change-transform w-full sm:w-auto"
+              className="flex flex-col items-center md:items-end gap-3 will-change-transform w-full sm:w-auto"
             >
-              <a 
-                href="https://somos.globo.com/movimento-led-luz-na-educacao/desafio-led/noticia/desafio-led-globo-2026-recebe-mais-de-3820-inscricoes-e-avanca-para-a-proxima-fase.ghtml" 
-                target="_blank" rel="noopener noreferrer" 
-                className="flex items-center justify-center gap-3 text-[16px] font-extrabold text-[#0A1128] border-2 border-[#0A1128] hover:bg-[#0A1128] hover:text-[#FDFBF7] px-8 py-4 rounded-full transition-colors whitespace-nowrap w-full"
-              >
-                Fase Anterior (Top 80) <ExternalLink size={18} strokeWidth={3} />
-              </a>
+              <span className="text-[14px] font-extrabold text-[#0A1128]/70 uppercase tracking-widest">
+                Ver Fases Anteriores no G1
+              </span>
+              <div className=" gap-6">
+                <a 
+                  href="https://somos.globo.com/movimento-led/desafio-led/noticia/desafio-led-globo-2026-divulga-os-40-projetos-selecionados-para-a-proxima-etapa.ghtml" 
+                  target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-1.5 text-[15px] font-bold text-[#0A1128] hover:text-black transition-colors"
+                >
+                  Top 40 <ExternalLink size={16} strokeWidth={3} />
+                </a>
+                <a 
+                  href="https://somos.globo.com/movimento-led-luz-na-educacao/desafio-led/noticia/desafio-led-globo-2026-recebe-mais-de-3820-inscricoes-e-avanca-para-a-proxima-fase.ghtml" 
+                  target="_blank" rel="noopener noreferrer" 
+                  className="flex items-center gap-1.5 text-[15px] font-bold text-[#0A1128] hover:text-black transition-colors"
+                >
+                  Top 80 <ExternalLink size={16} strokeWidth={3} />
+                </a>
+              </div>
             </motion.div>
           </div>
 
