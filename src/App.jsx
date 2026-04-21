@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import Home from './pages/Home';
@@ -28,28 +28,44 @@ function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b flex justify-center border-[#0A1128]/10">
-      <div className="w-full max-w-7xl px-6 md:px-10 h-[80px] grid grid-cols-12 items-center gap-6">
+      <div className="w-full max-w-7xl px-6 md:px-10 h-[80px] grid grid-cols-12 items-center gap-4">
 
-        <div className="col-span-8 md:col-span-3 flex items-center">
+        <div className="col-span-8 md:col-span-2 lg:col-span-3 flex items-center">
           <Link to="/" className="text-[22px] font-extrabold tracking-tight text-[#0A1128]">
             EducaHUB
           </Link>
         </div>
 
-        <nav className="hidden md:flex col-span-9 justify-end gap-10">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex col-span-10 lg:col-span-9 justify-end items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-[15px] font-extrabold tracking-tight transition-colors ${
+              className={`text-[14px] lg:text-[15px] font-extrabold tracking-tight transition-colors whitespace-nowrap ${
                 location.pathname === link.path ? 'text-[#C6EDDF] bg-[#0A1128] px-3 py-1 rounded-sm' : 'text-[#0A1128]/70 hover:text-[#0A1128]'
               }`}
             >
               {link.label}
             </Link>
           ))}
+
+          <div className="flex items-center gap-4 pl-4 lg:pl-6 border-l border-[#0A1128]/20">
+            <span className="text-[12px] font-bold text-[#0A1128]/60 hidden xl:block uppercase tracking-widest">
+              Já é parceiro?
+            </span>
+            <a 
+              href="https://educahub-portal.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#0A1128] text-[#C6EDDF] px-5 py-2 rounded-full text-[13px] lg:text-[14px] font-extrabold hover:bg-[#C6EDDF] hover:text-[#0A1128] transition-colors whitespace-nowrap flex items-center gap-2"
+            >
+              Acessar Portal <ExternalLink size={16} strokeWidth={2.5} />
+            </a>
+          </div>
         </nav>
 
+        {/* Mobile Menu Toggle */}
         <div className="flex md:hidden col-span-4 justify-end">
           <button 
             className="text-[#0A1128]"
@@ -60,6 +76,7 @@ function Header() {
         </div>
       </div>
 
+      {/* Mobile Nav */}
       {menuOpen && (
         <div className="md:hidden absolute top-[80px] left-0 w-full bg-[#FDFBF7] border-b border-[#0A1128]/10 px-6 py-6 flex flex-col gap-6 shadow-xl">
           {navLinks.map((link) => (
@@ -71,6 +88,20 @@ function Header() {
               {link.label}
             </Link>
           ))}
+
+          <div className="flex flex-col gap-3 pt-4 border-t border-[#0A1128]/10 mt-2">
+            <span className="text-[13px] font-bold text-[#0A1128]/50 uppercase tracking-widest text-center">
+              Já é um parceiro EducaHUB?
+            </span>
+            <a 
+              href="https://educahub-portal.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#0A1128] text-[#C6EDDF] px-6 py-4 rounded-full text-[16px] font-extrabold hover:bg-[#C6EDDF] hover:text-[#0A1128] transition-colors flex items-center justify-center gap-2 w-full shadow-lg"
+            >
+              Acessar Portal <ExternalLink size={20} strokeWidth={2.5} />
+            </a>
+          </div>
         </div>
       )}
     </header>
