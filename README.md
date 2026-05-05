@@ -1,5 +1,5 @@
 ## EducaHUB
-### [STATUS: EM DESENVOLVIMENTO 🔵]
+### [STATUS: ENCERRADO 🔴]
 Projeto selecionado entre os 20 pelo Desafio LED em colaboração com a Fundação Roberto Marinho
 
 #### **Saiba mais em:**
